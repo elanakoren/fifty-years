@@ -148,9 +148,16 @@ function App() {
     );
   };
 
+  const renderLoadingIndicator = () => {
+    return (
+      <>Loading...</>
+    )
+  }
+
   return (
     <>
       {!arePeopleLoading && !personView && renderSearchInput()}
+      {arePeopleLoading && renderLoadingIndicator()}
       <div
         style={{
           display: "flex",
