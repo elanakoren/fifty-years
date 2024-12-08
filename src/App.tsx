@@ -29,15 +29,20 @@ type PersonResponse = {
 };
 
 function App() {
+  // API response data
   const [response, setResponse] = useState<PersonResponse>({
     results: [],
     count: 0,
     next: null,
     previous: null,
   });
+  // loading flag
   const [arePeopleLoading, setArePeopleLoading] = useState<boolean>(true);
+  // are we looking at one particular character's character card?
   const [personView, setPersonView] = useState("");
+  // are we searching for characters
   const [filteredCharacters, setFilteredCharacters] = useState<Person[]>([]);
+  // what's the query we're searching with?
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   // fetch all pages at once, on mount. we need to do this for the neighbor list to be accurate.
@@ -118,6 +123,7 @@ function App() {
 
   const onClickBack = () => {
     setPersonView("");
+    setSearchQuery("");
   };
 
   const onClickPerson = (name: string) => {
@@ -144,7 +150,7 @@ function App() {
 
   return (
     <>
-      {renderSearchInput()}
+      {!arePeopleLoading && !personView && renderSearchInput()}
       <div
         style={{
           display: "flex",
