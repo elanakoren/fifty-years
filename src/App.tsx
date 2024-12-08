@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { PersonCard } from "./PersonCard";
 import { PersonPage } from "./PersonPage";
+import './App.css';
 
 export type Person = {
   birth_year: string;
@@ -40,7 +41,7 @@ function App() {
   const [arePeopleLoading, setArePeopleLoading] = useState<boolean>(true);
   // are we looking at one particular character's character card?
   const [personView, setPersonView] = useState("");
-  // are we searching for characters
+  // is the user searching for characters?
   const [filteredCharacters, setFilteredCharacters] = useState<Person[]>([]);
   // what's the query we're searching with?
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -141,7 +142,7 @@ function App() {
 
   const renderSearchInput = () => {
     return (
-      <div style={{ marginLeft: "60px" }}>
+      <div className="search-input">
         <label>Search for a character: </label>
         <input onChange={onSearch} />
       </div>
@@ -158,14 +159,7 @@ function App() {
     <>
       {!arePeopleLoading && !personView && renderSearchInput()}
       {arePeopleLoading && renderLoadingIndicator()}
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "flex-start",
-          marginLeft: "50px",
-        }}
-      >
+      <div className="people-container">
         {renderPeople()}
       </div>
     </>

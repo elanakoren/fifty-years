@@ -1,4 +1,5 @@
 import type { Person } from "./App";
+import './App.css';
 
 export const PersonPage: React.FC<{
   person: Person;
@@ -7,8 +8,8 @@ export const PersonPage: React.FC<{
 }> = ({ person, onClickBack, neighbors }) => {
   const renderBackButton = () => {
     return (
-      <div style={{ marginBottom: "10px" }}>
-        <button style={{borderRadius: '8px', backgroundColor: 'white'}} onClick={onClickBack}>Back</button>
+      <div className="back-button-container">
+        <button className="back-button" onClick={onClickBack}>Back</button>
       </div>
     );
   };
@@ -32,12 +33,12 @@ export const PersonPage: React.FC<{
       return <li key={neighbor.name}>{neighbor.name}</li>;
     });
     return (
-      <div style={{ marginTop: "10px" }}>
+      <div className="neighbor-list">
         Planetary neighbors:
         {neighborList.length > 0 ? (
-          <ul style={{marginTop: 0}}>{neighborList}</ul>
+          <ul className="neighbor-list-container">{neighborList}</ul>
         ) : (
-          " No planetary neighbors"
+          " None"
         )}
       </div>
     );
