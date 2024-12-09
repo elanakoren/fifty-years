@@ -20,5 +20,5 @@ What I would do if I had more time:
 - Some scalable solution for managing CSS (e.g., BEM, styled components, tailwind)
 - Have nice formatters to display some of the less-human readable data (mass, homeplanet, etc)
 - Use React router instead of using component state to manage the different views
-- Memoize/cache API results, as the initial call is slow and Star Wars characters are unlikely to change very often.
+- Cache API results, as the initial call is slow and Star Wars characters are unlikely to change very often.
 - Should you be able to search for characters by any attribute other than their name? We could support this.
