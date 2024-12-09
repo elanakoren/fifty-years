@@ -39,9 +39,9 @@ function App() {
   });
   // loading flag
   const [arePeopleLoading, setArePeopleLoading] = useState<boolean>(true);
-  // are we looking at one particular character's character card?
+  // are we looking at one particular character's character card? if so, which?
   const [personView, setPersonView] = useState("");
-  // is the user searching for characters?
+  // if a search query is present, which characters match it?
   const [filteredCharacters, setFilteredCharacters] = useState<Person[]>([]);
   // what's the query we're searching with?
   const [searchQuery, setSearchQuery] = useState<string>('');
